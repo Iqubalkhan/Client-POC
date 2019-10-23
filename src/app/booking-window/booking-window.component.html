@@ -1,0 +1,28 @@
+<div class="container margin-top-40">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="from">Select Pick up From</label>
+          <select class="custom-select" id="from" (change)="selectDepart($event.target.value)">
+            <option selected value="none">Select Pick up location</option>
+            <option *ngFor="let location of depart" [value]="location">
+              {{location}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="to">Select drop location</label>
+          <select class="custom-select" id="to" name="to" [(ngModel)]="selectedFrom"
+            (change)="selectDestination($event.target.value)">
+            <option selected value="none">Select drop location</option>
+            <option *ngFor="let location of destination" [value]="location">
+              {{location}}
+            </option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary">Book</button>
+      </form>
+    </div>
+  </div>
+</div>
